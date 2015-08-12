@@ -1,40 +1,36 @@
 <h3>Welcome to Hangman</h3>
-<p></p>
-<p></p>
-
+<br>
 <form action="/play_word" method="post">
   <label for="play_word">Type in a word</label>
   <input type="password" name="play_word" id="play_word">
-  <button type="submit">submit</button>
+  <button type="submit" class="btn btn-primary btn-sm">submit</button>
 </form>
-
+<br>
 <% if @@word.wrong_guesses().length.<(7) %>
 <img src='img/hangman_<%= @@word.wrong_guesses().length()%>.jpg'>
 <% else %>
 <img src='img/hangman_7.jpg'>
 <% end %>
 
-<p></p>
-<p></p>
+<br>
 
-<%= @@masked_word.join(' ') %>
+<h3><%= @@masked_word.join(' ') %></h3>
+<br>
 
 <% if @@word.wrong_guesses().length() < 7 && !@@word.win() %>
 <form action="/guess" method="post">
   <label for="guess">Guess a letter</label>
   <input type="text" name="guess" id="guess" autofocus>
-  <button type="submit">submit</button>
+  <button type="submit" class="btn btn-warning btn-sm">submit</button>
 </form>
 <% end %>
 
-<p></p>
-<p></p>
-<%= @@word.wrong_guesses().join(' ') %>
+<br>
+<br>
 
-<p></p>
-<p></p>
-
-<% if @@word.win() %>
+<% if !@@word.win() %>
+<h3 class="wrong"><%= @@word.wrong_guesses().join(' ') %></h3>
+<% else %>
 <h4>You won!</h4>
 <h6>Type in another word to play again!</h6>
 <% end %>

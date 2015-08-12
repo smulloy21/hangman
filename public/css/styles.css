@@ -1,4 +1,12 @@
+body {
+  text-align: center;
+}
+
 .nice_game {
   width: 30%;
   margin: 0 auto;
+}
+
+.wrong {
+  color: red;
 }
