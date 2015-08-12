@@ -8,16 +8,24 @@
   <button type="submit">submit</button>
 </form>
 
+<% if @@word.wrong_guesses().length.<(7) %>
+<img src='img/hangman_<%= @@word.wrong_guesses().length()%>.jpg'>
+<% else %>
+<img src='img/hangman_7.jpg'>
+<% end %>
+
 <p></p>
 <p></p>
 
 <%= @@masked_word.join(' ') %>
 
+<% if @@word.wrong_guesses().length() < 7 && !@@word.win() %>
 <form action="/guess" method="post">
   <label for="guess">Guess a letter</label>
-  <input type="text" name="guess" id="guess">
+  <input type="text" name="guess" id="guess" autofocus>
   <button type="submit">submit</button>
 </form>
+<% end %>
 
 <p></p>
 <p></p>
@@ -28,5 +36,5 @@
 
 <% if @@word.win() %>
 <h4>You won!</h4>
-<a href="/">Play again</a>
+<h6>Type in another word to play again!</h6>
 <% end %>
