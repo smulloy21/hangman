@@ -10,3 +10,7 @@ body {
 .wrong {
   color: red;
 }
+
+.win {
+	color: green;
+}

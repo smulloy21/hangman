@@ -1,7 +1,7 @@
-<h3>Welcome to Hangman</h3>
+<h2>Welcome to Hangman</h2>
 <br>
 <form action="/play_word" method="post">
-  <label for="play_word">PLAYER ONE: Type in a word to start a game:</label>
+  <label for="play_word">PLAYER ONE: Enter a word to start a new game:</label>
   <br>
   <input type="password" name="play_word" id="play_word">
   <button type="submit" class="btn btn-primary btn-sm">submit</button>
@@ -29,12 +29,9 @@
 </form>
 <% end %>
 
-<br>
-<br>
-
 <% if !@@word.win() %>
 <h3 class="wrong"><%= @@word.wrong_guesses().join(' ') %></h3>
 <% else %>
-<h4>You won!</h4>
-<h6>Type in another word to play again!</h6>
+<h2 class="win">You won!</h2>
+<h3>Enter another word to play again!</h3>
 <% end %>
