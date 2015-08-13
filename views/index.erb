@@ -1,25 +1,29 @@
 <h3>Welcome to Hangman</h3>
 <br>
 <form action="/play_word" method="post">
-  <label for="play_word">Type in a word</label>
+  <label for="play_word">PLAYER ONE: Type in a word to start a game:</label>
+  <br>
   <input type="password" name="play_word" id="play_word">
   <button type="submit" class="btn btn-primary btn-sm">submit</button>
 </form>
 <br>
-<% if @@word.wrong_guesses().length.<(7) %>
-<img src='img/hangman_<%= @@word.wrong_guesses().length()%>.jpg'>
+<% if !@@word.win() %>
+	<% if @@word.wrong_guesses().length < 7 %>
+	<img src='img/<%= @@word.wrong_guesses().length()%>.jpg'>
+	<% else %>
+	<img src='img/7.jpg'>
+	<% end %>
 <% else %>
-<img src='img/hangman_7.jpg'>
+	<img src='img/<%= @@word.wrong_guesses().length()%>win.jpg'>
 <% end %>
 
-<br>
-
 <h3><%= @@masked_word.join(' ') %></h3>
-<br>
+
 
 <% if @@word.wrong_guesses().length() < 7 && !@@word.win() %>
 <form action="/guess" method="post">
-  <label for="guess">Guess a letter</label>
+  <label for="guess">PLAYER TWO: Guess a letter</label>
+  <br>
   <input type="text" name="guess" id="guess" autofocus>
   <button type="submit" class="btn btn-warning btn-sm">submit</button>
 </form>

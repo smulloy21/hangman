@@ -4,6 +4,8 @@ also_reload('lib/**/*.rb')
 require('./lib/hangman')
 
 get('/') do
+	@@word = Word.new('awesome')
+	@@masked_word = @@word.masked_word()
   erb(:index)
 end
 
