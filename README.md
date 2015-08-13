@@ -10,6 +10,8 @@ A simple two-player hangman game.
 
 link on heroku: https://play-hangman.herokuapp.com/
 
+(Thanks to Dana Pryor for help with the images!)
+
 ## Setup
 
 * _Clone from GitHub_
